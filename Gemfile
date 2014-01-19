@@ -5,7 +5,9 @@ gem 'rails', '4.0.2'
 
 # Use sqlite3 as the database for Active Record
 
+group :development, :test do
   gem 'sqlite3'
+end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -34,7 +36,7 @@ gem "jquery-rails"
 gem "custom_error_message"
 gem 'bootstrap-sass', '2.3.2.0'
 gem 'rspec-rails', '2.13.1'
-gem "heroku"
+
 group :production do
   gem 'pg', '0.15.1'
   gem 'rails_12factor', '0.0.2'
