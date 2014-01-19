@@ -1,0 +1,17 @@
+
+<h1> Logowanie </h1>
+
+
+<table class="myTable">
+<pre>
+<%= form_for @customer, url: {action: "create"} do |f| %>
+</pre>
+  <tr>
+    <th>Login</th>
+	<td><%= f.text_field :login %></td>
+  </tr>
+
+  <tr>
+    <th>Imie</th>
+	<td><%= f.text_field :password %> </td>
+  </tr>

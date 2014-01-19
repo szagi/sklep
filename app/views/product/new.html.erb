@@ -1,0 +1,21 @@
+
+<h1> Nowy Produkt </h1>
+
+
+<table class="myTable">
+<pre>
+<%= form_for @product, url: {action: "create"} do |f| %>
+</pre>
+  <tr>
+    <th>Login</th>
+	<td><%= f.text_field :name %></td>
+  </tr>
+
+  <tr>
+    <th>Imie</th>
+	<td><%= f.text_field :price %> </td>
+  </tr>
+  	<%= f.submit "Zarejestruj"%>
+
+<% end %>
+  
