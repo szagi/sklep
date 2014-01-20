@@ -1,6 +1,7 @@
 class Customer < ActiveRecord::Base
 before_save { self.email = email.downcase }
 before_save { self.login = login.downcase }
+before_create :create_remember_token
 
   has_many :order
     validates :name, :email,:password,:city,:country,:street,:zip_code, presence: true
@@ -16,4 +17,17 @@ before_save { self.login = login.downcase }
 has_secure_password
 validates :password, confirmation: true, length: {minimum: 6}
 
+def Customer.new_remember_token
+    SecureRandom.urlsafe_base64
+  end
+
+  def Customer.encrypt(token)
+    Digest::SHA1.hexdigest(token.to_s)
+  end
+
+  private
+
+    def create_remember_token
+      self.remember_token = Customer.encrypt(Customer.new_remember_token)
+    end
 end

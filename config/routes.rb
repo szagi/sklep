@@ -1,6 +1,7 @@
 Sklep::Application.routes.draw do
 
- resources :customers
+  resources :customers
+  resources :sessions, only: [:new, :create, :destroy]
   
   root  'static_pages#home'
   
@@ -10,6 +11,8 @@ Sklep::Application.routes.draw do
   
   match '/new', to: 'customers#new', via: 'get'
 
+  match '/signin',  to: 'sessions#new', via: 'get'
+  match '/signout', to: 'sessions#destroy', via: 'delete'
 
 
   

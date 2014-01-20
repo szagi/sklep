@@ -7,7 +7,8 @@ class CustomersController < ApplicationController
    def create
     @customer = Customer.new(new_params)
     if @customer.save
-      flash[:success] = "Welcome to the Sample App!"
+      sign_in @customer
+      flash[:success] = "Witam w sklepie!"
       redirect_to @customer   
       else
       render "new"
