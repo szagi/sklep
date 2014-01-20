@@ -1,6 +1,7 @@
 class Customer < ActiveRecord::Base
 before_save { self.email = email.downcase }
 before_save { self.login = login.downcase }
+
   has_many :order
     validates :name, :email,:password,:city,:country,:street,:zip_code, presence: true
     validates :email, confirmation: true, uniqueness: true#, :message => "^Friendly field name is blank"

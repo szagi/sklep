@@ -1,22 +1,15 @@
 Sklep::Application.routes.draw do
-  get 'customers/new'
+
+ resources :customers
   
   root  'static_pages#home'
   
   match '/home', to: 'static_pages#home',  via: 'get'
   match '/about', to: 'static_pages#about',  via: 'get'
   match '/contact', to: 'static_pages#contact',  via: 'get'
-  match '/new', to: 'customer#new', via: 'get'
   
-  
-  resources :welcome
-  resources :customer
-  resources :order
-  resources :product
-  resources :order_element
-  
-      
-      get 'customer/show' => 'customer#show'
+  match '/new', to: 'customers#new', via: 'get'
+
 
 
   

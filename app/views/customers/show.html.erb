@@ -1,0 +1,34 @@
+<% provide(:title, @customer.name) %>
+
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= gravatar_for @customer %>
+        <%= @customer.name %>
+      </h1>
+    </section>
+  </aside>
+</div>
+<table>
+	
+	  <tr>
+    <th>Login</th>
+    <th>Imie</th>
+    <th>Nazwisko</th>
+    <th>Email</th>
+    <th>Data utworzenia</th>
+    <th>Data modyfikacji</th>    
+  </tr>
+ 
+
+  <tr>
+    <td><%= @customer.login %></td>
+    <td><%= @customer.name %></td>
+     <td><%= @customer.surname %></td>
+     <td><%= @customer.email %></td>
+     <td><%= @customer.created_at %></td>
+     <td><%= @customer.updated_at %> </td>
+  </tr>
+
+</table>

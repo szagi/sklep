@@ -14,7 +14,6 @@
 //= require turbolinks
 
 //= require rails.validations
-//= require rails.validations.simple_form
 
 //= require jquery
 //= require jquery_ujs

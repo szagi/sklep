@@ -1,14 +1,14 @@
-class CustomerController < ApplicationController
+class CustomersController < ApplicationController
   
-
   def new
     @customer = Customer.new
   end
-
-    def create
+  
+   def create
     @customer = Customer.new(new_params)
     if @customer.save
-      redirect_to action: "show"    
+      flash[:success] = "Welcome to the Sample App!"
+      redirect_to @customer   
       else
       render "new"
     end
@@ -20,11 +20,7 @@ class CustomerController < ApplicationController
   end
   
   def show
-    @customer = Customer.all
+    @customer = Customer.find(params[:id])
   end
   
-  
-  def login
-    @customer = Customer.all
-  end
 end
