@@ -1,11 +1,14 @@
 Sklep::Application.routes.draw do
-  get "static_pages/home"
-  get "static_pages/help"
- 
-  resources :customers
-  resources :orders
-  resources :products
-  resources :order_elements
+  get 'customers/new'
+  
+  root  'static_pages#home'
+  
+  match '/home', to: 'static_pages#home',  via: 'get'
+  match '/about', to: 'static_pages#about',  via: 'get'
+  match '/contact', to: 'static_pages#contact',  via: 'get'
+  match '/new', to: 'customer#new', via: 'get'
+  
+  
   resources :welcome
   resources :customer
   resources :order
