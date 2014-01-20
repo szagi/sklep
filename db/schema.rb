@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140112104644) do
+ActiveRecord::Schema.define(version: 20140120112829) do
 
   create_table "customers", force: true do |t|
     t.string   "login"
@@ -27,7 +27,11 @@ ActiveRecord::Schema.define(version: 20140112104644) do
     t.string   "zip_code"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password_digest"
   end
+
+  add_index "customers", ["email"], name: "index_customers_on_email", unique: true
+  add_index "customers", ["login"], name: "index_customers_on_login", unique: true
 
   create_table "order_elements", force: true do |t|
     t.integer  "amount"
