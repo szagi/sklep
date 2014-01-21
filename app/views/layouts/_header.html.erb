@@ -5,10 +5,16 @@
       <nav>
         <ul class="nav pull-right">
           <li><%= link_to "Strona główna", root_path %></li>
-          <li><%= link_to "O mnie", about_path %></li>
+          <li><%= link_to "O stronie", about_path %></li>
+          <% if !signed_in? %>
           <li><%= link_to "Zarejestruj", new_path %></li>
+          <% end %>
           <% if signed_in? %>
-            <li><%= link_to "Użytkownicy", customers_path %></li>
+          	<% if current_customer.admin?%>
+          		 <li><%= link_to "Dodaj produkt", new_product_path %></li>
+          		 <li><%= link_to "Użytkownicy", customers_path %></li>
+          	<% end %>
+            
             <li id="fat-menu" class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                 Konto <b class="caret"></b>

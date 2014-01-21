@@ -1,6 +1,7 @@
 Sklep::Application.routes.draw do
 
   resources :customers
+  resources :products
   resources :sessions, only: [:new, :create, :destroy]
   
   root  'static_pages#home'

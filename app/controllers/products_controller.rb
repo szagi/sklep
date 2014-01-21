@@ -1,4 +1,4 @@
-class ProductController < ApplicationController
+class ProductsController < ApplicationController
   
   def new 
     @product = Product.new
@@ -7,7 +7,9 @@ class ProductController < ApplicationController
   def create
     @product = Product.new(new_params)
     if @product.save
-      redirect_to action: "show"    
+      redirect_to root_path
+    else
+      render 'new'
     end
   end
   
