@@ -1,11 +1,11 @@
-<% provide(:title, @customer.name) %>
+<% provide(:title, @customers.login) %>
 
 <div class="row">
   <aside class="span4">
     <section>
       <h1>
-        <%= gravatar_for @customer %>
-        <%= @customer.name %>
+        <%= gravatar_for @customers %>
+        <%= @customers.login %>
       </h1>
     </section>
   </aside>
@@ -23,12 +23,12 @@
  
 
   <tr>
-    <td><%= @customer.login %></td>
-    <td><%= @customer.name %></td>
-     <td><%= @customer.surname %></td>
-     <td><%= @customer.email %></td>
-     <td><%= @customer.created_at %></td>
-     <td><%= @customer.updated_at %> </td>
+    <td><%= @customers.login %></td>
+    <td><%= @customers.name %></td>
+     <td><%= @customers.surname %></td>
+     <td><%= @customers.email %></td>
+     <td><%= @customers.created_at %></td>
+     <td><%= @customers.updated_at %> </td>
   </tr>
 
 </table>

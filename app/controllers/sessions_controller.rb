@@ -7,7 +7,7 @@ def create
   customer = Customer.find_by(login: params[:session][:login])
   if customer && customer.authenticate(params[:session][:password])
     sign_in customer
-    redirect_to customer
+    redirect_back_or customer
   else
     flash.now[:error] = 'Błędny login/hasło' # Not quite right!
       render 'new'

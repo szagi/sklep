@@ -1,0 +1,8 @@
+<li>
+  <%= gravatar_for customer %>
+  <%= link_to customer.login, customer %>
+  <% if current_customer.admin? && !current_customer?(customer) %>
+    | <%= link_to "delete", customer, method: :delete,
+                                  data: { confirm: "Jesteś pewny?" } %>
+  <% end %>
+</li>
